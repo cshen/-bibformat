@@ -1,6 +1,6 @@
 """Console script """
 import sys
-import bibformat as bf
+from bibformat import bibformat as bf
 
 
 
