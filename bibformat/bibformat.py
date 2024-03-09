@@ -238,6 +238,17 @@ def format_bibtex( in_bibtex_f ):
 #
 
 
+def main(args=None):
+
+    if len(sys.argv) > 1:
+        bibf = sys.argv[1]
+        # print("The input bibtex file is: " + str(bibf) )
+        format_bibtex( str(bibf) )
+    else:
+        print("Please input a bibtex file to process.")
+    return 0
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         bibf = sys.argv[1]
