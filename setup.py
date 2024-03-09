@@ -35,7 +35,7 @@ setup(
     description="bibtex format",
     entry_points={
         "console_scripts": [
-            "bibformat=bibformat:main",
+            "bibformat=bibformat.cli:main",
         ],
     },
     install_requires=requirements,
