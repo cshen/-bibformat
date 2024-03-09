@@ -1,0 +1,4 @@
+bibtexparser==1.4.1     
+levenshtein==0.25.0
+
+     
