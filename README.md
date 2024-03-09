@@ -1,1 +1,1 @@
-# -bibformat
+# bibformat
