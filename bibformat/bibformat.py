@@ -3,7 +3,7 @@
 import bibtexparser
 import sys
 from Levenshtein import distance
-import pre_process as p
+from bibformat import pre_process as p
 
 
 
