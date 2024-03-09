@@ -170,8 +170,8 @@ package-data = {"bibformat" = ["*.bib"]}
 
 
 [tool.setuptools.packages.find]
-where = ["."]  # list of folders that contain the packages (["."] by default)
-include = ["bibformat"]  # package names should match these glob patterns (["*"] by default)
+where = ["."]    # list of folders that contain the packages (["."] by default)
+include = ["*"]  # package names should match these glob patterns (["*"] by default)
 exclude = ["pre_process"]  # exclude packages matching these glob patterns (empty by default)
 namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
 
