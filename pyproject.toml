@@ -152,7 +152,7 @@ test = ["coverage"]
 # The following would provide a command line executable called `bibformat`
 # which executes the function `main` from this package when invoked.
 [project.scripts]
-bibformat = "bib_formalise:main"
+bibformat = "bibformat:main"
 
 
 
@@ -166,12 +166,12 @@ bibformat = "bib_formalise:main"
 [tool.setuptools]
 # If there are data files included in your packages that need to be
 # installed, specify them here.
-package-data = {"bibformat" = ["*.dat"]}
+package-data = {"bibformat" = ["*.bib"]}
 
 
 [tool.setuptools.packages.find]
 where = ["."]  # list of folders that contain the packages (["."] by default)
-include = ["bib_formalise"]  # package names should match these glob patterns (["*"] by default)
+include = ["bibformat"]  # package names should match these glob patterns (["*"] by default)
 exclude = ["pre_process"]  # exclude packages matching these glob patterns (empty by default)
 namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
 
