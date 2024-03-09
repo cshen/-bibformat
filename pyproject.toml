@@ -152,7 +152,7 @@ test = ["coverage"]
 # The following would provide a command line executable called `bibformat`
 # which executes the function `main` from this package when invoked.
 [project.scripts]
-bib_formalise = "bib_formalise: main"
+bibformat = "bib_formalise:main"
 
 
 
