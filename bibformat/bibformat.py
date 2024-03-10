@@ -20,6 +20,7 @@ ICCV= ["Proceedings of the IEEE/CVF International Conference on Computer Vision"
 
 
 CVPR= ["Proceedings of the IEEE/CVF International Conference on Computer Vision and Pattern Recognition" ,
+       "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
 "Proceedings IEEE/CVF International Conference on Computer Vision and Pattern Recognition" ,
 "Proc. IEEE/CVF International Conference on Computer Vision and Pattern Recognition" ,
 "Proc. IEEE International Conference on Computer Vision and Pattern Recognition" ,
@@ -36,8 +37,16 @@ ECCV= ["Proceedings of the European Conference on Computer Vision" ,
 "Eur. Conf. Comput. Vis." ]
 
 
+ACCV= ["Proceedings of the Asian Conference on Computer Vision" ,
+"Proceedings Asian Conference on Computer Vision" ,
+"Proc. of The Asian Conference on Computer Vision" ,
+"Proc. Asian Conference on Computer Vision",
+"Asian Conf. Comput. Vis." ]
+
+
 ICML= ["Proceedings of the International Conference on Machine Learning" ,
-"Proceedings Int. Conference on Machine Learning" ,
+"Proceedings Int. Conference on Machine Learning",
+"International conference on machine learning",
 "Proc. International Conference on Machine Learning" ,
 "Proc. Int. Conference on Machine Learning",
 "Int. Conf. Mach. Learn."]
@@ -89,6 +98,11 @@ JMLR = ["Journal of Machine Learning",
 TMLR = ["Transactions on Machine Learning",
         "Trans. Mach. Learn."]
 
+TMLR = ["Transactions on Machine Learning",
+        "Trans. Mach. Learn."]
+
+TOG =  ["ACM Trans. Graph.",
+        "ACM Transactions on Graphics"]
 
 
 
@@ -116,6 +130,12 @@ def replace_booktitle(s):
         dist.append ( distance(o, v) )
         rat.append( ratio(o, v) )
         ven.append( 'ECCV' )
+
+    for v in ACCV:
+        v = p.pre_process(v)
+        dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
+        ven.append( 'ACCV' )
 
     for v in CVPR:
         v = p.pre_process(v)
@@ -192,6 +212,12 @@ def replace_booktitle(s):
         dist.append ( distance(o, v) )
         rat.append( ratio(o, v) )
         ven.append( 'TMLR' )
+
+for v in TOG:
+        v = p.pre_process(v)
+        dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
+        ven.append( 'TOG' )
 
 
     val_min = min(dist)
