@@ -213,7 +213,7 @@ def replace_booktitle(s):
         rat.append( ratio(o, v) )
         ven.append( 'TMLR' )
 
-for v in TOG:
+    for v in TOG:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
         rat.append( ratio(o, v) )
