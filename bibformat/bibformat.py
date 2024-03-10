@@ -271,12 +271,6 @@ def format_bibtex( in_bibtex_f ):
                 else:
                     print('    booktitle = "' +  s   +'",' )
 
-                print('}')
-                # print the original venue for checking
-                if string_dist < THRESHOLD:
-                    print("%  before replacement: " + s + "  " + str( string_ratio) )
-
-
             s = str ( entry.get( 'journal' ) or '')
             if not s == '':
                 s, venue, string_dist, venue_ratio, string_ratio  =  replace_booktitle(s)
@@ -286,14 +280,15 @@ def format_bibtex( in_bibtex_f ):
                 else:
                     print('    journal   = "' + s +'",' )
 
-                print('}')
+
+
+            print('}')
                 # print the original venue for checking
-                if string_dist < THRESHOLD:
+            if string_dist < THRESHOLD:
                     print("%  before replacement: " + s + "  " + str( string_ratio) )
 
 
-            print('')
-            print('')
+            print('\n\n')
 
 
             # for key, value in entry.items():
