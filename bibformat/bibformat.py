@@ -41,7 +41,8 @@ ACCV= ["Proceedings of the Asian Conference on Computer Vision" ,
 "Proceedings Asian Conference on Computer Vision" ,
 "Proc. of The Asian Conference on Computer Vision" ,
 "Proc. Asian Conference on Computer Vision",
-"Asian Conf. Comput. Vis." ]
+"Asian Conf. Comput. Vis." ,
+"Proceedings of the Asian Conference on Computer Vision (ACCV)"]
 
 
 ICML= ["Proceedings of the International Conference on Machine Learning" ,
