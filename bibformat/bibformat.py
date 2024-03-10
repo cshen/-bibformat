@@ -3,6 +3,8 @@
 import bibtexparser
 import sys
 from Levenshtein import distance
+from Levenshtein import ratio
+
 from bibformat import pre_process as p
 
 
@@ -81,6 +83,14 @@ PR = ["Pattern Recog.",
 arXiv= ["arXiv: arxiv",
         "arXiv preprint arXiv:"]
 
+JMLR = ["Journal of Machine Learning",
+        "J. Mach. Learn."]
+
+TMLR = ["Transactions on Machine Learning",
+        "Trans. Mach. Learn."]
+
+
+
 
 THRESHOLD = 15
 
@@ -93,79 +103,108 @@ def replace_booktitle(s):
 
     dist = []
     ven  = []
-
+    rat  = []
     o = p.pre_process(s)
     for v in ICCV:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'ICCV' )
 
     for v in ECCV:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'ECCV' )
 
     for v in CVPR:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'CVPR' )
 
 
     for v in ICML:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'ICML' )
 
     for v in ICLR:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'ICLR' )
 
     for v in AAAI:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'AAAI' )
 
 
     for v in NeurIPS:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'NeurIPS' )
 
     for v in KDD:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'KDD' )
 
     for v in IJCV:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'IJCV' )
 
     for v in TPAMI:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'TPAMI' )
 
     for v in PR:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'PR' )
 
 
     for v in arXiv:
         v = p.pre_process(v)
         dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
         ven.append( 'arXiv' )
+
+
+    for v in JMLR:
+        v = p.pre_process(v)
+        dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
+        ven.append( 'JMLR' )
+
+    for v in TMLR:
+        v = p.pre_process(v)
+        dist.append ( distance(o, v) )
+        rat.append( ratio(o, v) )
+        ven.append( 'TMLR' )
+
 
     val_min = min(dist)
     idx_min = min(range(len( dist )), key=dist.__getitem__)
+
+    rat_min = min(rat)
+    idx_min_using_rat = min(range(len( rat )), key=rat.__getitem__)
 
     # print(val_min)
     # print( ven[ idx_min]  )
     # print()
 
-    return s, ven[ idx_min], val_min
+    return s, ven[ idx_min], val_min, ven[ idx_min_using_rat ], rat_min
 
 
 
@@ -183,6 +222,7 @@ def format_bibtex( in_bibtex_f ):
         for entry in bib_database.entries:
     # print("Article:")
             string_dist = 1000
+            string_ratio= 1
 
             print('@' + entry.get( 'ENTRYTYPE' ) +'{' + entry.get( 'ID' ) +',' )
             print('    author    = "' + entry.get( 'author' ) +'",' )
@@ -194,7 +234,7 @@ def format_bibtex( in_bibtex_f ):
 
             s = str ( entry.get( 'booktitle' ) or '')
             if not s == '':
-                s, venue, string_dist  =  replace_booktitle(s)
+                s, venue, string_dist, venue_ratio, string_ratio  =  replace_booktitle(s)
 
                 if string_dist < THRESHOLD:
                     print('    booktitle = ' +  venue   +',' )
@@ -204,12 +244,12 @@ def format_bibtex( in_bibtex_f ):
                 print('}')
                 # print the original venue for checking
                 if string_dist < THRESHOLD:
-                    print("%  before replacement: " + s )
+                    print("%  before replacement: " + s + "  " + str( string_ratio) )
 
 
             s = str ( entry.get( 'journal' ) or '')
             if not s == '':
-                s, venue, string_dist  =  replace_booktitle(s)
+                s, venue, string_dist, venue_ratio, string_ratio  =  replace_booktitle(s)
 
                 if string_dist < THRESHOLD:
                     print('    journal   = ' +  venue   +',' )
@@ -219,7 +259,7 @@ def format_bibtex( in_bibtex_f ):
                 print('}')
                 # print the original venue for checking
                 if string_dist < THRESHOLD:
-                    print("%  before replacement: " + s )
+                    print("%  before replacement: " + s + "  " + str( string_ratio) )
 
 
             print('')
