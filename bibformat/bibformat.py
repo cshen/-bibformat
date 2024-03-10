@@ -31,6 +31,7 @@ CVPR= ["Proceedings of the IEEE/CVF International Conference on Computer Vision 
 
 
 ECCV= ["Proceedings of the European Conference on Computer Vision" ,
+       "Proceedings of the European Conference on Computer Vision (ECCV)",
 "Proceedings Eur. Conference on Computer Vision" ,
 "Proc. European Conference on Computer Vision" ,
 "Proc. Eur. Conference on Computer Vision",
@@ -46,6 +47,7 @@ ACCV= ["Proceedings of the Asian Conference on Computer Vision" ,
 
 
 ICML= ["Proceedings of the International Conference on Machine Learning" ,
+       "Proceedings of the International Conference on Machine Learning (ICML)",
 "Proceedings Int. Conference on Machine Learning",
 "International conference on machine learning",
 "Proc. International Conference on Machine Learning" ,
@@ -80,9 +82,11 @@ KDD = [ "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
 
 
 IJCV = ["International Journal of Computer Vision",
+        "International Journal of Computer Vision (IJCV)",
         "Int. J. of Computer Vision"]
 
 TPAMI = ["IEEE Transactions on Pattern Analysis and Machine Intelligence",
+         "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
         "IEEE Trans.  Pattern Analysis and Machine Intelli."]
 
 PR = ["Pattern Recog.",
@@ -93,17 +97,16 @@ PR = ["Pattern Recog.",
 arXiv= ["arXiv: arxiv",
         "arXiv preprint arXiv:"]
 
-JMLR = ["Journal of Machine Learning",
-        "J. Mach. Learn."]
+JMLR = ["Journal of Machine Learning Research",
+        "Journal of Machine Learning Research (JMLR)",
+        "J. Mach. Learn. Res." ]
 
-TMLR = ["Transactions on Machine Learning",
-        "Trans. Mach. Learn."]
-
-TMLR = ["Transactions on Machine Learning",
-        "Trans. Mach. Learn."]
+TMLR = ["Transactions on Machine Learning Research",
+        "Trans. Mach. Learn. Res."]
 
 TOG =  ["ACM Trans. Graph.",
-        "ACM Transactions on Graphics"]
+        "ACM Transactions on Graphics",
+        "ACM Transactions on Graphics (TOG)"]
 
 
 
