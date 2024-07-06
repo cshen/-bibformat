@@ -1,6 +1,7 @@
 """Console script """
 import sys
 from bibformat import bibformat as bf
+import datetime
 
 
 
@@ -9,6 +10,8 @@ def main(args=None):
     if len(sys.argv) > 1:
         bibf = sys.argv[1]
         # print("The input bibtex file is: " + str(bibf) )
+
+        x = datetime.datetime.now()
 
         print("% This bibtex is generated using https://github.com/cshen/bibformat   " +  x.strftime("%D %T"))
         print("% You will need to: wget https://raw.githubusercontent.com/cshen/bibformat/main/cvml.bib")
