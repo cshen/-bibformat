@@ -6,7 +6,7 @@ from Levenshtein import distance
 from Levenshtein import ratio
 
 from bibformat import pre_process as p
-
+import datetime
 
 
 
@@ -305,9 +305,16 @@ def format_bibtex( in_bibtex_f ):
 
 def main(args=None):
 
+    x = datetime.datetime.now()
+
     if len(sys.argv) > 1:
         bibf = sys.argv[1]
         # print("The input bibtex file is: " + str(bibf) )
+
+        print("% This bibtex is generated using https://github.com/cshen/bibformat   " +  x.strftime("%D %T"))
+        print("% You will need to: wget https://raw.githubusercontent.com/cshen/bibformat/main/cvml.bib")
+        print("")
+
         format_bibtex( str(bibf) )
     else:
         print("Please input a bibtex file to process.")
